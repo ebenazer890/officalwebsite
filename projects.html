@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            background: linear-gradient(145deg, #64748b, #334155);
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-radius: inherit;
+            padding: 2rem;
+        }
+        
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .project-link {
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            transform: translateX(4px);
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+        }
+        
+        .project-card:hover .glow-effect {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-white-200 min-h-screen py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold text-black mb-6 tracking-tight">
+                My <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Projects</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+            <p class="text-gray-400 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+                Explore my latest work and creative solutions crafted with passion and attention to detail.
+            </p>
+        </div>
+        
+        <!-- Projects Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card gradient-border rounded-2xl glow-effect">
+                <div class="card-content">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Website 1(demo portfolio)</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Minimal:<br>
+"A demo portfolio crafted to reflect my journey in web development."<br>
+
+
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <a href="https://ebenazer.netlify.app/" class="project-link inline-flex items-center text-indigo-400 hover:text-indigo-300 font-medium group">
+                            View Project
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card gradient-border rounded-2xl glow-effect">
+                <div class="card-content">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Website 2 (very first website)</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                           "A simple cap website I built as my first project — not perfect, but a proud starting point in my coding journey."
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <a href="home.html" class="project-link inline-flex items-center text-emerald-400 hover:text-emerald-300 font-medium group">
+                            View Project
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card gradient-border rounded-2xl glow-effect">
+                <div class="card-content">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-rose-500 to-pink-600 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Website 3</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            A dynamic platform showcasing creative problem-solving and technical expertise, designed to engage users and drive meaningful interactions.
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <a href="#" class="project-link inline-flex items-center text-rose-400 hover:text-rose-300 font-medium group">
+                            View Project
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+    </div>
+</body>
+</html>
