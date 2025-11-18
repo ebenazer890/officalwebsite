@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ebenazer - AI & Web Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -138,7 +138,7 @@
         <!-- Profile image -->
         <div class="w-48 h-48 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center shadow-xl overflow-hidden">
           <img src="20250801_191625 (1).jpg" alt="Ebenazer"
-               class="w-full h-full object-cover" />
+               class="w-full h-full object-cover" loading="lazy" />
         </div>
 
         <!-- Text Content -->
@@ -244,13 +244,20 @@
     </footer>
 
     <script>
+        // Cache DOM elements for better performance
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const contactForm = document.getElementById('contact-form');
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
         // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
         });
 
         // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchorLinks.forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -261,7 +268,7 @@
                     });
                 }
                 // Close mobile menu if open
-                document.getElementById('mobile-menu').classList.add('hidden');
+                mobileMenu.classList.add('hidden');
             });
         });
 
@@ -275,30 +282,22 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Unobserve after animation to improve performance
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
+        fadeInElements.forEach(el => {
             observer.observe(el);
         });
 
         // Contact form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! I\'ll get back to you soon.');
             this.reset();
-        });
-
-        // Initialize animations for elements already in view
-        window.addEventListener('load', function() {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    el.classList.add('visible');
-                }
-            });
         });
     </script>
 </body>
