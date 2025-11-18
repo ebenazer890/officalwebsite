@@ -129,7 +129,10 @@
 </div>
 
 <script>
-const GROQ_API_KEY = "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"; // Replace with your real key in production
+// SECURITY WARNING: API keys should never be exposed in client-side code
+// This key has been removed for security reasons
+// For production use, implement a backend API that securely handles the GROQ API calls
+const GROQ_API_KEY = ""; // TODO: Implement backend proxy for API calls
 
 async function sendMessage() {
   const input = document.getElementById("chatInput");
@@ -168,7 +171,7 @@ async function sendMessage() {
     addMessage(botReply.trim(), "bot");
   } catch (error) {
     console.error(error);
-    addMessage("⚠️ Error: Unable to connect to Groq API.", "bot");
+    addMessage("⚠️ Error: API key not configured. Please set up a backend proxy to handle API requests securely.", "bot");
   }
 }
 

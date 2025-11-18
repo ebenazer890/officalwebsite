@@ -1,6 +1,7 @@
-*{
-    margin: 0px;
-    padding: 0px;
+/* Use more specific reset for better performance */
+html, body {
+    margin: 0;
+    padding: 0;
 }
 nav{
     background-color: black;
@@ -8,21 +9,21 @@ nav{
    padding: 25px;
    margin:20px;
 }
-ul,li,h1{
+nav ul,
+nav li,
+nav h1 {
     display: inline;
-    padding-top: 5cqh;
-   
+    padding-top: 5px;
 }
-ul{
+nav ul {
     margin-left: 60%;
-    
 }
-li:hover{
-    color: white;
-}
-li{
+nav li {
     cursor: pointer;
     color: grey;
+}
+nav li:hover {
+    color: white;
 }
 input{
     padding: 5px;
@@ -46,20 +47,19 @@ input{
 .product{
     text-align: center;
 }
-.middle :hover{
+.middle:hover {
     background-color: black;
     color: white;
-    cursor:pointer;
+    cursor: pointer;
 }
-.lower{
-    
-    color: rgb(0, 0, 0);
+.lower {
+    color: #000;
     text-align: center;
     margin: 20px;
     padding: 20px;
 }
-.contact{
-    background-color: black;
-    color:white;text-align: center;
-
+.contact {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
 }
